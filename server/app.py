@@ -11,7 +11,9 @@ from config import app, db, api
 # Add your model imports
 from flask import jsonify, request
 from app import app, db
-from models import User, Movie, Showtime, Review, Favorite
+from models import User, Movie, Review, Showtime, Favorite
+from app import app
+
 
 # Routes for Users
 @app.route('/users', methods=['GET'])
@@ -188,8 +190,6 @@ def delete_favorite(favorite_id):
     db.session.commit()
     return jsonify({'message': 'Favorite deleted'}), 200
 
-if __name__ == '__main__':
-    app.run(debug=True)
 
 
 
